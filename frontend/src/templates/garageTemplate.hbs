@@ -1,0 +1,29 @@
+<div class="form-group col col-md-6 col-lg-4 garageInput">
+  <label for="create" class="form-label mb-1">Create new car</label>
+  <form id="create" class="input-group mb-2">
+    <input  required type="text" name="name" value="{{create.name}}" minlength="1" class="form-control" placeholder="Enter text here">
+    <input type="color" name="color" value="{{create.color}}" class="form-control form-control-color">
+    <button class="btn btn-primary">Create</button>
+  </form>
+  <label for="update" class="form-label mb-1">Update car</label>
+  <form id="update" class="input-group mb-2">
+    <input {{#unless update.id}}disabled{{/unless}} required type="text" name="name" value="{{update.name}}" minlength="1"  class="form-control" placeholder="Enter text here">
+    <input {{#unless update.id}}disabled{{/unless}} type="color" name="color" value="{{update.color}}" class="form-control form-control-color">
+    <button {{#unless update.id}}disabled{{/unless}} class="btn btn-primary">Update</button>
+  </form>
+  <div class="d-flex gap-2">
+    <button type="button" id="race" class="btn btn-success">Race</button>
+    <button type="button" id="reset" class="btn btn-danger">Reset</button>
+    <button id="generate" type="button" class="btn btn-info">Generate Cars</button>
+  </div>
+</div>
+<h2 class="my-4">Garage (<span id="amount">-</span>)</h2>
+<h4 class="mt-2">Page #<span id="pageNumber">-</span></h4>
+<div id="garage" class="garage px-1 py-2 bg-body bg-opacity-10 rounded mb-2">
+  <span class="h4" hidden>No cars here</span>
+<div class="finish"></div>
+</div>
+<div class="d-flex gap-2">
+  <button id="prev" type="button" class="btn btn-secondary">PREV</button>
+  <button id="next" type="button" class="btn btn-secondary">NEXT</button>
+</div>

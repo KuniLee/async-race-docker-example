@@ -1,0 +1,11 @@
+@import "garage";
+@import "winners";
+
+body {
+  background: rgb(37, 37, 49);
+}
+
+.form-control,
+.form-control:focus {
+  color: black;
+}

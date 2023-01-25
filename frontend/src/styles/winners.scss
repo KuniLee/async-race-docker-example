@@ -1,0 +1,16 @@
+.time-column,
+.wins-column{
+  cursor: pointer;
+  user-select: none;
+}
+
+.asc:after{
+  content: '↑';
+  margin-left: 5px;
+}
+
+.desc:after{
+  content: '↓';
+  margin-left: 5px;
+}
+
