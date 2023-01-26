@@ -1,7 +1,13 @@
-docker build -t acync-race-app .
-docker build -t acync-race-server .
+cd frontend
+docker build -t kunilee/async-race-app .
+cd ../backend
+docker build -t kunilee/async-race-server .
 docker push kunilee/async-race-app:latest
 docker push kunilee/async-race-server:latest
-docker run -d -p 80:3333 --rm --name frontend kunilee/async-race-app:latest 
-docker run -d -p 3000:3000 --rm --name server kunilee/async-race-server:latest 
+
+docker pull kunilee/async-race-app:latest
+docker pull kunilee/async-race-server:latest
+
+docker run -d -p 3000:3000 --rm --name server kunilee/async-race-server:latest
+docker run -d -p 80:3333 --rm --name frontend kunilee/async-race-app:latest
 
