@@ -1,4 +1,4 @@
-FROM node as builder
+FROM node:current-alpine3.17 as builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node
+FROM node:current-alpine3.17
 
 COPY ./package.json ./server.js .
 

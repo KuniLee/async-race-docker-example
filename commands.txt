@@ -1,13 +1,29 @@
+# go to frontend folder
 cd frontend
+
+# build first image
 docker build -t kunilee/async-race-app .
+
+# go to frontend folder
 cd ../backend
+
+# build second image
 docker build -t kunilee/async-race-server .
+
+# display list with existing images
+docker images
+
+# send images to remote repository
 docker push kunilee/async-race-app:latest
 docker push kunilee/async-race-server:latest
 
+ssh root@{{VPS IP}}
+
+# pull images from remote repository
 docker pull kunilee/async-race-app:latest
 docker pull kunilee/async-race-server:latest
 
+# run containers on VPS
 docker run -d -p 3000:3000 --rm --name server kunilee/async-race-server:latest
 docker run -d -p 80:3333 --rm --name frontend kunilee/async-race-app:latest
 
